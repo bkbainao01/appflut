@@ -1,20 +1,26 @@
-import 'package:appflut/screen/home.dart';
 import 'package:flutter/material.dart';
+import 'package:appflut/state/authen.dart';
 
 void main() {
   runApp(MyApp());
 }
 
+final Map<String, WidgetBuilder> map = {
+  // ignore: non_constant_identifier_names
+  '/authen': (BuildContext) => Authen(),
+};
+
+String initRoute = '/authen';
+
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  // const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Home(),
+      routes: map,
+      title: 'IotApp',
+      initialRoute: initRoute,
     );
   }
 }
